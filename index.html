@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VCamera (Mod) Apk</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #2c003e, #ff007f, #ffcc00);
+      background-size: 400% 400%;
+      animation: gradient 20s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+    }
+
+    @keyframes gradient {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .card {
+      background: rgba(0, 0, 0, 0.75);
+      padding: 30px;
+      border-radius: 25px;
+      box-shadow: 0 0 30px #ffcc00aa;
+      width: 90%;
+      max-width: 420px;
+      text-align: center;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      background: #CB1818;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: #FFF200;
+      margin-bottom: 25px;
+      text-shadow: 0 0 10px #FBF146;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="file"] {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      background: #fff;
+      color: #000;
+      box-shadow: 0 0 10px #ffcc00aa;
+    }
+
+    .payment-options {
+      display: flex;
+      justify-content: space-around;
+      margin: 20px 0;
+    }
+
+    .option {
+      flex: 1;
+      margin: 0 8px;
+      padding: 14px 0;
+      border: none;
+      border-radius: 12px;
+      font-weight: bold;
+      background: #444;
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 0 10px #999;
+      transition: all 0.3s ease;
+    }
+
+    .option.active {
+      background: #ffcc00;
+      color: #000;
+      box-shadow: 0 0 15px #ffcc00;
+      transform: scale(1.05);
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin: 15px 0 5px;
+      font-size: 14px;
+      color: #ddd;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 15px;
+      margin-top: 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(to right, #ff416c, #ff4b2b);
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 20px #ff4b2b;
+      transition: all 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 30px #ff4b2b;
+    }
+
+    /* Modal */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .modal-content {
+      background: linear-gradient(to bottom right, #00c6ff, #0072ff);
+      padding: 20px;
+      border-radius: 20px;
+      text-align: center;
+      width: 90%;
+      max-width: 350px;
+      color: #fff;
+      box-shadow: 0 0 30px #00c6ff;
+    }
+
+    .modal-content input {
+      font-size: 20px;
+      text-align: center;
+      border: none;
+      padding: 10px;
+      margin: 15px 0;
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .modal-buttons {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .copy-btn,
+    .close-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .copy-btn {
+      background: #28a745;
+      color: #fff;
+    }
+
+    .close-btn {
+      background: #dc3545;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div style="text-align: center; margin-top: 20px;">
+  <img src="logo.png" alt="Logo" style="width: 100px; height: auto;" />
+</div>
+    <h1>VCamera (Mod) Apk</h1>
+    <form id="paymentForm">
+      <input type="text" placeholder="Enter your name" required />
+      <input type="email" placeholder="Enter your email" required />
+      <input type="tel" placeholder="Enter your phone number" required />
+
+      <div class="payment-options">
+        <button type="button" class="option active" id="binanceBtn">Binance</button>
+        <button type="button" class="option" id="otherBtn">Other</button>
+      </div>
+
+      <label>Upload Payment Proof Screenshot:</label>
+      <input type="file" required />
+
+      <button type="submit" class="submit-btn">Confirm Payment</button>
+    </form>
+  </div>
+
+  <!-- Binance Modal -->
+  <div class="modal" id="uidModal">
+    <div class="modal-content">
+      <h3>Binance UID Copy Now & Pay 10$ Then Upload Your Screenshot!</h3>
+      <input type="text" id="uidValue" value="787181287" readonly />
+      <div class="modal-buttons">
+        <button class="copy-btn" onclick="copyUID()">Copy UID</button>
+        <button class="close-btn" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const binanceBtn = document.getElementById('binanceBtn');
+    const otherBtn = document.getElementById('otherBtn');
+    const modal = document.getElementById('uidModal');
+
+    binanceBtn.addEventListener('click', () => {
+      binanceBtn.classList.add('active');
+      otherBtn.classList.remove('active');
+      modal.style.display = 'flex';
+    });
+
+    otherBtn.addEventListener('click', () => {
+      otherBtn.classList.add('active');
+      binanceBtn.classList.remove('active');
+    });
+
+    function closeModal() {
+      modal.style.display = 'none';
+    }
+
+    function copyUID() {
+      const uidInput = document.getElementById('uidValue');
+      uidInput.select();
+      uidInput.setSelectionRange(0, 99999);
+      navigator.clipboard.writeText(uidInput.value);
+      alert("UID copied to clipboard!");
+    }
+
+    document.getElementById('paymentForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  window.location.href = "12.html"; // Redirects to success page
+});
+  </script>
+
+</body>
+</html>
