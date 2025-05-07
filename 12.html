@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment Processing - Prank Call 2025</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #fc466b, #3f5efb);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      max-width: 360px;
+      width: 100%;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      animation: fadeIn 0.8s ease;
+    }
+
+    .logo {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    }
+
+    .logo img {
+      width: 65%;
+      height: auto;
+    }
+
+    h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .timer {
+      font-size: 32px;
+      font-weight: bold;
+      margin: 15px 0;
+      color: #ffecb3;
+    }
+
+    .progress-bar {
+      height: 10px;
+      background: #fff;
+      border-radius: 20px;
+      margin: 20px 0;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      width: 0%;
+      height: 100%;
+      background: #00ffcc;
+      transition: width 1s linear;
+    }
+
+    .message {
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .upload-box {
+      background: #fff;
+      padding: 8px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      background: #00ffcc;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 25px;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #00e6b2;
+    }
+
+    .payment-options {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .pay-btn {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.2);
+      border: 2px solid #fff;
+      color: #fff;
+      padding: 10px 0;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .pay-btn.active {
+      background: #00ffcc;
+      color: #000;
+      box-shadow: 0 0 10px #00ffcc;
+      transform: scale(1.05);
+    }
+
+    .modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: linear-gradient(to bottom right, #00c6ff, #0072ff);
+      color: #fff;
+      padding: 25px;
+      border-radius: 20px;
+      text-align: center;
+      width: 80%;
+      max-width: 340px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+      z-index: 999;
+      display: none;
+    }
+
+    .modal input {
+      margin: 10px 0;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .modal .copy-btn,
+    .modal .close-btn {
+      margin: 10px 5px 0 5px;
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      font-size: 14px;
+    }
+
+    .modal .copy-btn {
+      background: #00e676;
+      color: #000;
+    }
+
+    .modal .close-btn {
+      background: #ff5252;
+      color: #fff;
+    }
+
+    footer {
+      font-size: 12px;
+      color: #eee;
+      margin-top: 10px;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="logo">
+      <img src="logo.png" alt="App Logo" />
+    </div>
+
+    <h1>Prank Call 2025</h1>
+    <p class="message">Processing your payment...</p>
+    
+    <div class="timer" id="countdown">10:00</div>
+    
+    <div class="progress-bar">
+      <div class="progress-bar-fill" id="progress-bar-fill"></div>
+    </div>
+
+    <div class="payment-options">
+      <button class="pay-btn active" onclick="selectPayment('binance')">Binance</button>
+      <button class="pay-btn" onclick="selectPayment('other')">Other</button>
+    </div>
+
+    <p class="message">Waiting for your Prank Call APK!</p>
+
+    <div class="upload-box">
+      <input type="file" id="fileInput" />
+    </div>
+
+    <button class="btn">Complete Payment</button>
+
+    <footer>&copy; 2025 SSLCOMMERZ. All rights reserved.</footer>
+  </div>
+
+  <!-- Binance UID Modal -->
+  <div class="modal" id="uidModal">
+    <h3>Binance UID Copy Now & Pay $10 Then Upload Your Screenshot!</h3>
+    <input type="text" id="binanceUID" value="787181287" readonly />
+    <button class="copy-btn" onclick="copyUID()">Copy UID</button>
+    <button class="close-btn" onclick="closeModal()">Close</button>
+  </div>
+<!-- Nagad UID Modal -->
+<div class="modal" id="nagadModal">
+  <h3>Copy Now Nagad Number only<br>Send Money 1,000.BDT &<br>Upload Your Screenshot!</h3>
+  <input type="text" id="nagadNumber" value="9856000200983613" readonly />
+  <button class="copy-btn" onclick="copyNagad()">Copy Now</button>
+  <button class="close-btn" onclick="closeNagad()">Close</button>
+</div>
+  <script>
+  // Countdown Timer
+  let time = 600;
+  const countdownEl = document.getElementById('countdown');
+  const progressEl = document.getElementById('progress-bar-fill');
+
+  function updateCountdown() {
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
+    countdownEl.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    progressEl.style.width = `${(1 - time / 600) * 100}%`;
+    if (time > 0) {
+      time--;
+      setTimeout(updateCountdown, 1000);
+    }
+  }
+  updateCountdown();
+
+  function selectPayment(type) {
+    const buttons = document.querySelectorAll('.pay-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+    if (type === 'binance') {
+      buttons[0].classList.add('active');
+      showModal('uidModal');
+    } else if (type === 'other') {
+      buttons[1].classList.add('active');
+      showModal('nagadModal');
+    }
+  }
+
+  function showModal(id) {
+    closeAllModals();
+    document.getElementById(id).style.display = 'block';
+  }
+
+  function closeAllModals() {
+    document.getElementById('uidModal').style.display = 'none';
+    document.getElementById('nagadModal').style.display = 'none';
+  }
+
+  function copyUID() {
+    const uid = document.getElementById('binanceUID');
+    uid.select();
+    uid.setSelectionRange(0, 99999);
+    document.execCommand('copy');
+    alert('UID copied: ' + uid.value);
+  }
+
+  function copyNagad() {
+    const nagad = document.getElementById('nagadNumber');
+    nagad.select();
+    nagad.setSelectionRange(0, 99999);
+    document.execCommand('copy');
+    alert('Nagad number copied: ' + nagad.value);
+  }
+
+  function closeModal() {
+    document.getElementById('uidModal').style.display = 'none';
+  }
+
+  function closeNagad() {
+    document.getElementById('nagadModal').style.display = 'none';
+  }
+</script>
+</body>
+</html>
